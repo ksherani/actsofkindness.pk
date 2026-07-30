@@ -139,13 +139,12 @@ if (membershipForm) {
             phone: document.getElementById('phone').value,
             city: document.getElementById('city').value,
             profession: document.getElementById('profession').value,
-            interests: Array.from(document.querySelectorAll('input[name="interests"]:checked')).map(el => el.value),
-            availability: document.getElementById('availability').value,
+            category: document.getElementById('category').value,
             message: document.getElementById('message').value
         };
 
         // Validate required fields
-        if (!formData.fullname || !formData.email || !formData.phone || !formData.city || !formData.profession) {
+        if (!formData.fullname || !formData.email || !formData.phone || !formData.city || !formData.profession || !formData.category) {
             alert('Please fill in all required fields.');
             return;
         }

@@ -30,7 +30,7 @@ $input = file_get_contents('php://input');
 $data = json_decode($input, true);
 
 // Validate required fields
-$required_fields = ['fullname', 'email', 'phone', 'city', 'profession'];
+$required_fields = ['fullname', 'email', 'phone', 'city', 'profession', 'category'];
 foreach ($required_fields as $field) {
     if (empty($data[$field])) {
         http_response_code(400);
@@ -45,8 +45,7 @@ $email = filter_var($data['email'], FILTER_SANITIZE_EMAIL);
 $phone = sanitize_input($data['phone']);
 $city = sanitize_input($data['city']);
 $profession = sanitize_input($data['profession']);
-$interests = isset($data['interests']) && is_array($data['interests']) ? $data['interests'] : [];
-$availability = sanitize_input($data['availability'] ?? '');
+$category = sanitize_input($data['category']);
 $message = sanitize_input($data['message'] ?? '');
 
 // Validate email format
@@ -66,11 +65,11 @@ $config = [
 
 // Create email body for volunteers
 $volunteer_subject = "🤝 Welcome to Acts of Kindness Pakistan!";
-$volunteer_message = create_volunteer_email($fullname, $email, $phone, $city, $profession, $interests, $availability, $message);
+$volunteer_message = create_volunteer_email($fullname, $email, $phone, $city, $profession, $category, $message);
 
 // Create email body for admin
 $admin_subject = "📝 New Volunteer Application - $fullname";
-$admin_message = create_admin_email($fullname, $email, $phone, $city, $profession, $interests, $availability, $message);
+$admin_message = create_admin_email($fullname, $email, $phone, $city, $profession, $category, $message);
 
 // Email headers
 $headers = "MIME-Version: 1.0\r\n";
@@ -138,9 +137,7 @@ function sanitize_input($input) {
 /**
  * Create email for volunteer (confirmation)
  */
-function create_volunteer_email($fullname, $email, $phone, $city, $profession, $interests, $availability, $message) {
-    $interests_list = !empty($interests) ? implode(', ', $interests) : 'Not specified';
-
+function create_volunteer_email($fullname, $email, $phone, $city, $profession, $category, $message) {
     return "
     <!DOCTYPE html>
     <html>
@@ -186,14 +183,11 @@ function create_volunteer_email($fullname, $email, $phone, $city, $profession, $
                     <span class='label'>Education/Profession:</span> $profession
                 </div>
                 <div class='info-row'>
-                    <span class='label'>Areas of Interest:</span> $interests_list
-                </div>
-                <div class='info-row'>
-                    <span class='label'>Availability:</span> $availability
+                    <span class='label'>Category:</span> $category
                 </div>
 
                 <h2>What Happens Next?</h2>
-                <p>Our team will review your application and reach out to you within 3-5 business days. We'll discuss volunteer opportunities that match your interests and availability.</p>
+                <p>Our team will review your application and reach out to you within 3-5 business days. We'll discuss volunteer opportunities that match your category and background.</p>
 
                 <p>In the meantime, feel free to:</p>
                 <ul>
@@ -232,8 +226,7 @@ function create_volunteer_email($fullname, $email, $phone, $city, $profession, $
 /**
  * Create email for admin (notification)
  */
-function create_admin_email($fullname, $email, $phone, $city, $profession, $interests, $availability, $message) {
-    $interests_list = !empty($interests) ? implode(', ', $interests) : 'Not specified';
+function create_admin_email($fullname, $email, $phone, $city, $profession, $category, $message) {
     $submission_time = date('Y-m-d H:i:s');
 
     return "
@@ -288,15 +281,11 @@ function create_admin_email($fullname, $email, $phone, $city, $profession, $inte
                 </div>
 
                 <div class='section'>
-                    <h2 style='margin-top: 0; color: #111827;'>Volunteer Preferences</h2>
+                    <h2 style='margin-top: 0; color: #111827;'>Volunteer Category</h2>
                     <table>
                         <tr>
-                            <td><span class='label'>Interests:</span></td>
-                            <td>$interests_list</td>
-                        </tr>
-                        <tr>
-                            <td><span class='label'>Availability:</span></td>
-                            <td>$availability</td>
+                            <td><span class='label'>Category:</span></td>
+                            <td>$category</td>
                         </tr>
                     </table>
                 </div>
