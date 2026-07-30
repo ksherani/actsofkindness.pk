@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acts of Kindness Pakistan</title>
+    <meta name="description" content="Acts of Kindness Pakistan - A youth-centric NGO mobilizing health awareness, community service, and social welfare across Pakistan since 2016.">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Lato:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- GSAP Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <link rel="stylesheet" href="css/styles.css">
+
+    <style>
+        :root {
+            --primary-color: #10b981;
+            --primary-dark: #059669;
+            --secondary-color: #0d9488;
+            --accent-color: #06b6d4;
+            --light-bg: #f0fdf4;
+            --dark-text: #1f2937;
+            --gray-text: #6b7280;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        /* ===== HEADER STYLES ===== */
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--dark-text) !important;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .brand-logo {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #10b981 0%, #0d9488 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--dark-text) !important;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin: 0 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .btn-get-involved {
+            background: var(--primary-color);
+            color: white !important;
+            font-weight: 700;
+            padding: 0.65rem 1.8rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            border: none;
+        }
+
+        .btn-get-involved:hover {
+            background: var(--primary-dark);
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* ===== HERO SECTION ===== */
+        #hero {
+            background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 50%, #f0fdfa 100%);
+            padding: 100px 0 80px;
+        }
+
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--dark-text);
+            line-height: 1.2;
+            margin: 1.5rem 0 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: var(--gray-text);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+        }
+
+        .btn-hero-primary {
+            background: var(--primary-color);
+            border: none;
+            padding: 0.95rem 2.2rem;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.7rem;
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.95rem;
+        }
+
+        .btn-hero-primary:hover {
+            background: var(--primary-dark);
+            box-shadow: 0 12px 30px rgba(16, 185, 129, 0.35);
+            transform: translateY(-3px);
+            color: white;
+        }
+
+        .btn-hero-secondary {
+            background: white;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 0.85rem 2rem;
+            font-size: 0.95rem;
+            font-weight: 700;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.7rem;
+            cursor: pointer;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-hero-secondary:hover {
+            background: var(--primary-color);
+            color: white;
+            box-shadow: 0 12px 30px rgba(16, 185, 129, 0.25);
+            transform: translateY(-3px);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.2rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .stats-group {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid #d1d5db;
+        }
+
+        .stat-item {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--gray-text);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .hero-image-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image-wrapper img {
+            max-width: 100%;
+            height: auto;
+            width: 50%;
+        }
+
+        /* ===== SECTION STYLES ===== */
+        .section-light {
+            background-color: #f9fafb;
+            padding: 100px 0;
+        }
+
+        .section-white {
+            background-color: white;
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: var(--dark-text);
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--gray-text);
+            margin-bottom: 4rem;
+            font-weight: 400;
+        }
+
+        /* ===== CARDS ===== */
+        .card-program {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+            transition: all 0.4s ease;
+            height: 100%;
+            overflow: hidden;
+            background: white;
+            padding: 2.5rem;
+        }
+
+        .card-program:hover {
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
+        }
+
+        .card-program-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #10b981 0%, #0d9488 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-program h5 {
+            font-size: 1.35rem;
+            color: var(--dark-text);
+            margin-bottom: 1rem;
+        }
+
+        .card-program p {
+            color: var(--gray-text);
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        /* ===== TEAM SECTION ===== */
+        .team-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+            transition: all 0.4s ease;
+            background: white;
+        }
+
+        .team-card:hover {
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
+        }
+
+        .team-image {
+            height: 280px;
+            background: linear-gradient(135deg, #10b981 0%, #0d9488 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: rgba(255,255,255,0.25);
+        }
+
+        .team-content {
+            padding: 2.5rem;
+        }
+
+        .team-name {
+            font-size: 1.35rem;
+            color: var(--dark-text);
+            margin-bottom: 0.3rem;
+        }
+
+        .team-role {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .team-desc {
+            color: var(--gray-text);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .team-socials {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .team-social-btn {
+            width: 45px;
+            height: 45px;
+            background: #f3f4f6;
+            border: none;
+            border-radius: 50%;
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.95rem;
+        }
+
+        .team-social-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: #1f2937;
+            color: #d1d5db;
+            padding: 80px 0 30px;
+        }
+
+        .footer-section h5 {
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-section a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-brand {
+            margin-bottom: 2rem;
+        }
+
+        .footer-brand-logo {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #10b981 0%, #0d9488 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            color: #9ca3af;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-social-btn {
+            width: 45px;
+            height: 45px;
+            background: #374151;
+            border: none;
+            border-radius: 50%;
+            color: #d1d5db;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+
+        .footer-social-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .footer-contact-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-contact-item i {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            min-width: 25px;
+            flex-shrink: 0;
+        }
+
+        .footer-contact-item a {
+            color: #d1d5db;
+        }
+
+        .footer-contact-item a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-divider {
+            border-top: 1px solid #374151;
+            margin-top: 4rem;
+            padding-top: 2rem;
+        }
+
+        .footer-bottom {
+            color: #9ca3af;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* ===== FORM SECTION ===== */
+        .form-section {
+            background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+            padding: 100px 0;
+        }
+
+        .form-card {
+            background: white;
+            border-radius: 15px;
+            padding: 3.5rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+
+        .form-label {
+            font-weight: 700;
+            color: var(--dark-text);
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        .form-control {
+            border: 1px solid #d1d5db;
+            border-radius: 10px;
+            padding: 0.95rem 1.2rem;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            background-color: #f9fafb;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            background-color: white;
+            box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+            outline: none;
+        }
+
+        .form-check-input {
+            width: 1.25rem;
+            height: 1.25rem;
+            border: 2px solid #d1d5db;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .form-check-input:checked {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, #10b981 0%, #0d9488 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-weight: 700;
+            border-radius: 10px;
+            width: 100%;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+        }
+
+        .btn-submit:hover {
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .alert {
+            border-radius: 10px;
+            border: none;
+            font-size: 0.95rem;
+            padding: 1.2rem;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .stats-group {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .btn-hero-primary, .btn-hero-secondary {
+                width: 100%;
+            }
+            .navbar-nav {
+                text-align: center;
+                padding: 1rem 0;
+            }
+            .navbar-nav .nav-link {
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container-lg">
+            <a class="navbar-brand" href="#home">
+                <span class="brand-logo">AOK</span>
+                <span>Acts of Kindness</span>
+                <span style="font-size: 0.75rem; color: #9ca3af; margin-left: 0.3rem;">Pakistan</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">ABOUT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#programs">PROGRAMS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#team">TEAM</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#membership">VOLUNTEER</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">CONTACT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#membership" class="nav-link btn-get-involved">Get Involved</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="py-5">
+        <div class="container-lg">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div style="display: inline-block; background: #ecfdf5; padding: 0.6rem 1.2rem; border-radius: 25px; margin-bottom: 1.5rem;">
+                        <small style="color: var(--primary-color); font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.5px;">Since 2016</small>
+                    </div>
+                    <h1 class="hero-title">We Are Made Kind For Being Kind</h1>
+                    <p class="hero-subtitle">Join Pakistan's leading youth-driven movement for social impact. We're mobilizing communities to advance health, education, and dignity for vulnerable populations across the nation.</p>
+                    <div class="hero-buttons">
+                        <a href="#membership" class="btn btn-hero-primary">
+                            <i class="fas fa-check-circle"></i> Join Us Today
+                        </a>
+                        <a href="#about" class="btn btn-hero-secondary">
+                            <i class="fas fa-arrow-right"></i> Learn More
+                        </a>
+                    </div>
+                    <div class="stats-group">
+                        <div class="stat-item">
+                            <div class="stat-number">10K+</div>
+                            <div class="stat-label">Active Volunteers</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Community Programs</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">100K+</div>
+                            <div class="stat-label">Lives Impacted</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block">
+                    <div class="hero-image-wrapper">
+                        <img src="img/logo_aok.svg" alt="Acts of Kindness Logo" style="max-width: 90%;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section-light">
+        <div class="container-lg">
+            <h2 class="section-title text-center mb-2">Our Mission & Vision</h2>
+            <p class="section-subtitle text-center">Building a compassionate Pakistan where every community thrives</p>
+            <div class="row gap-4">
+                <div class="col-lg-6">
+                    <div class="card-program">
+                        <div class="card-program-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h5>Our Mission</h5>
+                        <p>To mobilize Pakistan's youth as change-makers, driving sustainable impact through health awareness, volunteer service, and dignified support for the most vulnerable. We believe in the power of community to transform lives.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card-program">
+                        <div class="card-program-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h5>Our Vision</h5>
+                        <p>A Pakistan where kindness is the foundation of society—where youth-led initiatives create lasting change, communities support each other with dignity, and opportunity reaches everyone regardless of circumstance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAMS SECTION -->
+    <section id="programs" class="section-white">
+        <div class="container-lg">
+            <h2 class="section-title text-center mb-2">Our Programs</h2>
+            <p class="section-subtitle text-center">Making a real difference in communities across Pakistan</p>
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card-program">
+                        <div class="card-program-icon" style="background: linear-gradient(135deg, #10b981 0%, #0d9488 100%);">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <h5>Ramadan Mehrbaan</h5>
+                        <p>Hundreds of thousands of meals are distributed during Ramadan among people which mainly included labours, taxi drivers, security guards and hospital staff.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card-program">
+                        <div class="card-program-icon" style="background: linear-gradient(135deg, #ec4899 0%, #be185d 100%);">
+                            <i class="fas fa-droplet"></i>
+                        </div>
+                        <h5>R-Fusion Blood Donor Hotline</h5>
+                        <p>All cases are first authenticated by our officers and later the word is spread among donors, potential donor is instructed and given guidelines before they donate blood.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card-program">
+                        <div class="card-program-icon" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+                            <i class="fas fa-bread-slice"></i>
+                        </div>
+                        <h5>Spread Love With Bread</h5>
+                        <p>Acts of kindness after verification, provides ration packs to the deserving families each month. The number of ration packs depends upon the amount of budget available.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card-program">
+                        <div class="card-program-icon" style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);">
+                            <i class="fas fa-image"></i>
+                        </div>
+                        <h5>#WhoisEdhi</h5>
+                        <p>In memory of greatest philanthropist Sir Edhi, we provide wheel chairs, crutches and beds in government hospitals.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card-program">
+                        <div class="card-program-icon" style="background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);">
+                            <i class="fas fa-tree"></i>
+                        </div>
+                        <h5>Walls Of Kindness</h5>
+                        <p>Multiple walls have been built and our team members frequently visit and place large quantities of clothes and shoes so that those in need can get them free of cost.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card-program">
+                        <div class="card-program-icon" style="background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);">
+                            <i class="fas fa-face-smile"></i>
+                        </div>
+                        <h5>Help A Smile</h5>
+                        <p>We frequently organize events in old homes, orphanages, and street-served, social citizens and local communities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM SECTION -->
+    <section id="team" class="section-light">
+        <div class="container-lg">
+            <h2 class="section-title text-center mb-2">Meet Our Leadership</h2>
+            <p class="section-subtitle text-center">Dedicated leaders committed to building a better Pakistan</p>
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="team-content">
+                            <h5 class="team-name">Ateeq Afridi</h5>
+                            <div class="team-role">Founder & CEO</div>
+                            <p class="team-desc">Visionary leader with a passion for mobilizing youth and communities toward sustainable social impact and meaningful change.</p>
+                            <div class="team-socials">
+                                <a href="#" class="team-social-btn" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="team-social-btn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="team-social-btn" title="Twitter"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="team-content">
+                            <h5 class="team-name">Program Director</h5>
+                            <div class="team-role">Operations & Impact</div>
+                            <p class="team-desc">Ensuring our programs deliver maximum impact through strategic execution and community engagement across all regions.</p>
+                            <div class="team-socials">
+                                <a href="#" class="team-social-btn" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="team-social-btn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="team-social-btn" title="Twitter"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <div class="team-content">
+                            <h5 class="team-name">Volunteer Lead</h5>
+                            <div class="team-role">Community Mobilization</div>
+                            <p class="team-desc">Building our volunteer community, nurturing grassroots leaders, and amplifying the impact of every person who joins our movement.</p>
+                            <div class="team-socials">
+                                <a href="#" class="team-social-btn" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="team-social-btn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="team-social-btn" title="Twitter"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MEMBERSHIP FORM -->
+    <section id="membership" class="form-section">
+        <div class="container" style="max-width: 650px;">
+            <h2 class="section-title text-center">Start Your Journey</h2>
+            <p class="section-subtitle text-center">Ready to make a difference? Join our movement and become a change-maker in your community.</p>
+            <div class="form-card">
+                <form id="membership-form">
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <label for="fullname" class="form-label">Full Name *</label>
+                            <input type="text" class="form-control" id="fullname" name="fullname" required>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <label for="email" class="form-label">Email Address *</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <label for="phone" class="form-label">Phone Number *</label>
+                            <input type="tel" class="form-control" id="phone" name="phone" required>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <label for="city" class="form-label">City/Location *</label>
+                            <input type="text" class="form-control" id="city" name="city" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <label for="profession" class="form-label">Profession *</label>
+                            <input type="text" class="form-control" id="profession" name="profession" required>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <label for="availability" class="form-label">Availability *</label>
+                            <select class="form-control" id="availability" name="availability" required>
+                                <option value="">Select your availability</option>
+                                <option value="full-time">Full-time</option>
+                                <option value="part-time">Part-time</option>
+                                <option value="weekends">Weekends Only</option>
+                                <option value="flexible">Flexible</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label">Areas of Interest *</label>
+                        <div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" id="medical" name="interests" value="medical">
+                                <label class="form-check-label" for="medical">Health & Medical Services</label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" id="awareness" name="interests" value="awareness">
+                                <label class="form-check-label" for="awareness">Education & Awareness</label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" id="community" name="interests" value="community">
+                                <label class="form-check-label" for="community">Community Support</label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" id="youth" name="interests" value="youth">
+                                <label class="form-check-label" for="youth">Youth Leadership</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="message" class="form-label">Tell us about yourself</label>
+                        <textarea class="form-control" id="message" name="message" rows="4" placeholder="What motivates you to volunteer? What impact do you want to create?"></textarea>
+                    </div>
+
+                    <div class="form-check mb-4">
+                        <input class="form-check-input" type="checkbox" id="terms" name="terms" required>
+                        <label class="form-check-label" for="terms">I agree to the volunteer code of conduct and commit to our values *</label>
+                    </div>
+
+                    <button type="submit" class="btn btn-submit">Become a Volunteer</button>
+
+                    <div id="success-message" class="alert d-none mt-4" role="alert"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contact">
+        <div class="container-lg">
+            <div class="row">
+                <!-- Brand Column -->
+                <div class="col-lg-3 col-md-6 footer-section mb-5">
+                    <div class="footer-brand">
+                        <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.5rem;">
+                            <div class="footer-brand-logo">AOK</div>
+                            <span style="font-weight: 700; color: white; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;">Acts of Kindness</span>
+                        </div>
+                        <p>Building a compassionate Pakistan through youth-led social impact and community empowerment since 2016.</p>
+                        <div class="footer-socials">
+                            <a href="https://www.facebook.com/actsofkindnesspk" target="_blank" class="footer-social-btn" title="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.instagram.com/actsofkindnesspk/" target="_blank" class="footer-social-btn" title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/company/acts-of-kindness/" target="_blank" class="footer-social-btn" title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://twitter.com/actsofkindnessp" target="_blank" class="footer-social-btn" title="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Column -->
+                <div class="col-lg-2 col-md-6 footer-section mb-5">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#programs">Our Programs</a></li>
+                        <li><a href="#team">Our Team</a></li>
+                        <li><a href="#membership">Join Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Organization Column -->
+                <div class="col-lg-2 col-md-6 footer-section mb-5">
+                    <h5>Organization</h5>
+                    <ul>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Impact Reports</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support Column -->
+                <div class="col-lg-2 col-md-6 footer-section mb-5">
+                    <h5>Resources</h5>
+                    <ul>
+                        <li><a href="mailto:info@actsofkindness.pk">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Column -->
+                <div class="col-lg-3 col-md-6 footer-section mb-5">
+                    <h5>Get in Touch</h5>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Office</strong><br>
+                            Office No. 4, Kashif Plaza<br>
+                            G8 Markaz, Islamabad
+                        </div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:info@actsofkindness.pk">info@actsofkindness.pk</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-divider">
+                <div class="row">
+                    <div class="col-md-4 footer-bottom">
+                        <p><strong>© 2026 Acts of Kindness Pakistan</strong><br>All rights reserved.</p>
+                    </div>
+                    <div class="col-md-4 text-center footer-bottom">
+                        <p>Spreading kindness and impact<br>across Pakistan since 2016</p>
+                    </div>
+                    <div class="col-md-4 text-end footer-bottom">
+                        <p>Made with purpose<br>by AOK community</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+</html>
